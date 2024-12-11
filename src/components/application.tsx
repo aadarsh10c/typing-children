@@ -7,14 +7,16 @@
  * React.ReactChildren;
  * React.ReactChild[];
  */
+import { PropsWithChildren } from 'react';
+type BoxProps = PropsWithChildren<{
+  color?: 'red' | 'green' | 'blue';
+}>;
 
-type BoxProps = { children: any /* 👈 Get rid of this! */ };
-
-const Box = ({ children }: BoxProps) => {
+const Box = ({ children, color = 'red' }: BoxProps) => {
   return (
     <section
       className="m-4"
-      style={{ padding: '1em', border: '5px solid purple' }}
+      style={{ padding: '1em', border: '5px solid purple', color }}
     >
       {children}
     </section>
